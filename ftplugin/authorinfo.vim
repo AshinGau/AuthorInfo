@@ -99,13 +99,13 @@ function s:AddTitle()
     let newline = getline('.')
     if oldline != newline
         let hasMul = 1
-        let preChar = '#'
+        let preChar = '*'
     else
         exec 'normal '.s:t_mapleader.'cl'
         let newline = getline('.')
         if oldline == newline
             let hasMul = -1
-            let noTypeChar = '#'
+            let noTypeChar = '*'
         endif
     endif
 
@@ -113,7 +113,7 @@ function s:AddTitle()
     call s:BeforeTitle()
 
     let firstLine = line('.')
-    call setline('.',noTypeChar.'=============================================================================')
+    call setline('.',noTypeChar.'***************************************************************************')
     normal o
     call setline('.',noTypeChar.preChar.'     FileName: '.expand("%:t"))
     normal o
@@ -132,7 +132,7 @@ function s:AddTitle()
     normal o
     call setline('.',noTypeChar.preChar.'      History:')
     normal o
-    call setline('.',noTypeChar.'=============================================================================')
+    call setline('.',noTypeChar.'***************************************************************************')
     let lastLine = line('.')
 
     "在最后一行之后做的事情
